@@ -1,0 +1,44 @@
+name: Deploy (Vite) to Server
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy via rsync over SSH
+        uses: burnett01/rsync-deployments@7.0.2
+        with:
+          switches: -avz --delete
+          path: dist/
+          remote_path: /var/www/augusta-animation.de/
+          remote_host: 45.81.234.51
+          remote_user: root
+          remote_key: |
+            -----BEGIN OPENSSH PRIVATE KEY-----
+            b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+            QyNTUxOQAAACDQ+5bWXwpkCqvXOLco46rM4SiVjQKayFDNfPl1BWDgpAAAAJiJ0upbidLq
+            WwAAAAtzc2gtZWQyNTUxOQAAACDQ+5bWXwpkCqvXOLco46rM4SiVjQKayFDNfPl1BWDgpA
+            AAAEAMwomFJIZUnL0L6TPA3O2ZfJ88Ufdi/QSb8+/2T6EYVND7ltZfCmQKq9c4tyjjqszh
+            KJWNAprIUM18+XUFYOCkAAAAFWdpdGh1Yi1hY3Rpb25zLWRlcGxveQ==
+            -----END OPENSSH PRIVATE KEY-----
+          remote_port: 22
