@@ -35,8 +35,8 @@ const SceneOverlay = () => {
                                 transition={{ duration: 0.5, delay: 0.1 }}
                                 className="pointer-events-auto"
                             >
-                                <Link to="/about" onClick={() => setIsOpen(false)}>
-                                    <span className="text-white text-2xl cursor-pointer hover:text-purple-400 drop-shadow-lg">ABOUT</span>
+                                <Link to="/store" onClick={() => setIsOpen(false)}>
+                                    <span className="text-white text-2xl cursor-pointer hover:text-purple-400 drop-shadow-lg">STORE</span>
                                 </Link>
                             </motion.div>
                             <motion.div
@@ -46,8 +46,8 @@ const SceneOverlay = () => {
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 className="pointer-events-auto"
                             >
-                                <Link to="/store" onClick={() => setIsOpen(false)}>
-                                    <span className="text-white text-2xl cursor-pointer hover:text-purple-400 drop-shadow-lg">STORE</span>
+                                <Link to="/about" onClick={() => setIsOpen(false)}>
+                                    <span className="text-white text-2xl cursor-pointer hover:text-purple-400 drop-shadow-lg">ABOUT</span>
                                 </Link>
                             </motion.div>
                             <motion.div
