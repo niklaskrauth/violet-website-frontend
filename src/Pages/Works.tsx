@@ -15,8 +15,7 @@ const worksData: AnimationWork[] = [
   { id: '3', year: 2025, title: 'Crystal Flow', description: 'Flüssige Bewegungen von kristallinen Strukturen.' },
   { id: '4', year: 2025, title: 'Cheese', description: 'Etwas über Käse, wie im Konzept erwähnt.' },
   { id: '5', year: 2024, title: 'Urban Pulse', description: 'Der Rhythmus der Stadt in animierter Form.' },
-  { id: '6', year: 2024, title: 'Digital Rain', description: 'Ein moderner Klassiker, neu interpretiert.' },
-  { id: '7', year: 2023, title: 'Echoes', description: 'Visuelle Darstellung von Schallwellen.' },
+  { id: '6', year: 2024, title: 'Digital Rain', description: 'Ein moderner Klassiker, neu interpretiert.' }
 ];
 
 const years = [2026, 2025, 2024];
