@@ -44,8 +44,33 @@ const Store = () => {
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div className="min-h-screen text-white pt-32 pb-20 px-4 md:px-12 relative">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen text-white pt-32 pb-20 px-4 md:px-12 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.img 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          src="/assets/images/Store_Background_main.png" 
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <motion.img 
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+          src="/assets/images/Store_Background_arm.png" 
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        />
+        <motion.img 
+          initial={{ opacity: 0, y: -200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+          src="/assets/images/Store_Background_Star.png" 
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex justify-between items-center mb-16">
           <h2 className="text-4xl font-black uppercase tracking-tighter">Store</h2>
           <button 

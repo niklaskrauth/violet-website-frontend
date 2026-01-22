@@ -16,6 +16,7 @@ const Scene = () => {
     const isHomePage = location.pathname === "/";
     const isWorksPage = location.pathname === "/works";
     const isStorePage = location.pathname === "/store";
+    const isAboutPage = location.pathname === "/about";
 
     return (
         <>
@@ -39,7 +40,7 @@ const Scene = () => {
                 </AnimatePresence>
             </div>
 
-            <div className={`fixed top-0 left-0 w-full h-full z-5 ${isWorksPage || isStorePage ? 'pointer-events-auto overflow-y-auto' : 'pointer-events-none'}`}>
+            <div className={`fixed top-0 left-0 w-full h-full z-5 ${isWorksPage || isStorePage || isAboutPage ? 'pointer-events-auto overflow-y-auto' : 'pointer-events-none'}`}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
