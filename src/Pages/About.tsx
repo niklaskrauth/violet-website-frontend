@@ -33,8 +33,13 @@ const About = () => {
           <div className="flex-1">
             <h2 className="text-5xl font-black mb-8 tracking-tighter uppercase italic">About me</h2>
             <p className="text-zinc-400 text-xl leading-relaxed font-light max-w-xl">
-              [Placeholder für deinen Text. Hier kannst du etwas über dich, deine Vision und deine Arbeit schreiben. 
-              Lass die Leute wissen, wer hinter den Projekten steckt.]
+              Auf der Suche nach Licht in meinem trüben Alltag das mir Hoffnung und Freude schenken kann fand ich eines Tages die Freude von Manga und Anime.
+              Welche mir durch das Eintauchen in deren fiktiven Welten und Artstyles wie die Strahlen der Sonne gewärmt haben und mich letzten auch dazu motivierten selbst Charakters, Animationen und Storys zu kreieren.
+              Damit möchte ich dieses Licht das mich gewärmt hat und heute noch antreibt mit anderen Menschen mit meinen Kreationen teilen.
+              Auf dass ich darin euer eigenes Licht finden werdet.
+              <br />
+              <br />
+              - VI
             </p>
           </div>
           <div className="w-[400px] h-[500px] bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden relative group">
@@ -108,7 +113,12 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <a href="#" className="flex items-center gap-6 group">
+              <a 
+                href="https://www.instagram.com/ani.nation.memes?igsh=MWluYzczbndkNG5i" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-6 group"
+              >
                 <div className="w-16 h-16 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
                   <img src="/assets/images/Instragram.png" alt="Instagram" className="w-8 h-8 object-contain" />
                 </div>

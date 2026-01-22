@@ -11,11 +11,50 @@ interface AnimationWork {
 
 const worksData: AnimationWork[] = [
   { id: '1', year: 2026, title: 'Project Alpha', description: 'Eine faszinierende Animation über Licht und Schatten.' },
-  { id: '2', year: 2025, title: 'Nebula Drift', description: 'Reise durch einen farbenfrohen Nebel im Weltraum.' },
-  { id: '3', year: 2025, title: 'Crystal Flow', description: 'Flüssige Bewegungen von kristallinen Strukturen.' },
-  { id: '4', year: 2025, title: 'Cheese', description: 'Etwas über Käse, wie im Konzept erwähnt.' },
-  { id: '5', year: 2024, title: 'Urban Pulse', description: 'Der Rhythmus der Stadt in animierter Form.' },
-  { id: '6', year: 2024, title: 'Digital Rain', description: 'Ein moderner Klassiker, neu interpretiert.' }
+  { 
+    id: '2', 
+    year: 2025, 
+    title: 'Head Turn',
+    description: 'He is gonna shoot you.',
+    videoUrl: '/assets/videos/2025/HiPaint_1764153224805.mp4'
+  },
+  { 
+    id: '3', 
+    year: 2025, 
+    title: 'Rat Maxing', 
+    description: 'Macht halt Raten Sachen.',
+    videoUrl: '/assets/videos/2025/Rat_-_Maxing_1.mp4'
+  },
+  { 
+    id: '4', 
+    year: 2025, 
+    title: 'Converter',
+    description: 'Drehende Kristalle',
+    videoUrl: '/assets/videos/2025/lv_0_20251026205014.mp4'
+  },
+  { 
+    id: '5', 
+    year: 2025, 
+    title: 'Die Glocke',
+    description: 'Man hört sie in der Ferne leuten.',
+    videoUrl: '/assets/videos/2025/lv_0_20251026205955.mp4'
+  },
+  { 
+    id: '6', 
+    year: 2025, 
+    title: 'Mochi',
+    description: 'Squished und Bounced herum.',
+    videoUrl: '/assets/videos/2025/lv_0_20251112114027.mp4'
+  },
+  {
+    id: '7',
+    year: 2025,
+    title: 'Drop',
+    description: 'Ein Tropfen fällt in den Teich.',
+    videoUrl: '/assets/videos/2025/ezgif-3316a7d3b96126c2.mp4'
+  },
+  { id: '8', year: 2024, title: 'Urban Pulse', description: 'Der Rhythmus der Stadt in animierter Form.' },
+  { id: '9', year: 2024, title: 'Digital Rain', description: 'Ein moderner Klassiker, neu interpretiert.' }
 ];
 
 const years = [2026, 2025, 2024];
@@ -46,9 +85,20 @@ const WorkItem = ({ work }: { work: AnimationWork; index: number }) => {
       className="flex items-center gap-12 mb-48 w-full"
       id={`work-${work.id}`}
     >
-      <div className="w-[400px] h-[400px] bg-zinc-900/50 backdrop-blur-sm rounded-xl flex-shrink-0 flex items-center justify-center border border-white/10 shadow-2xl overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Animation Placeholder</span>
+      <div className="w-[400px] h-[400px] bg-zinc-900/50 backdrop-blur-sm rounded-xl flex-shrink-0 flex items-center justify-center border border-white/10 shadow-2xl overflow-hidden group relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
+        {work.videoUrl ? (
+          <video 
+            src={work.videoUrl} 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Animation Placeholder</span>
+        )}
       </div>
       <div className="flex-1">
         <motion.h3 
