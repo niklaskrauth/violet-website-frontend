@@ -164,19 +164,19 @@ const Store = () => {
       <AnimatePresence>
         {isCartOpen && (
           <motion.div
-            initial={{ x: '-100%' }}
+            initial={{ x: '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
+            exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 h-full w-full md:w-[450px] bg-zinc-900/95 backdrop-blur-2xl z-[110] border-r border-white/10 p-8 shadow-2xl flex flex-col"
+            className="fixed top-32 right-0 bottom-0 w-full md:w-[450px] bg-zinc-900/95 backdrop-blur-2xl z-[110] border-l border-t border-white/10 p-6 shadow-2xl flex flex-col rounded-tl-3xl"
           >
-            <div className="flex justify-between items-center mb-12">
-              <h2 className="text-3xl font-black uppercase tracking-tighter italic">Warenkorb</h2>
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-black uppercase tracking-tighter italic">Warenkorb</h2>
               <button 
                 onClick={() => setIsCartOpen(false)}
                 className="p-2 hover:bg-white/10 rounded-full transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>

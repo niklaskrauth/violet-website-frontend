@@ -7,6 +7,14 @@ const SceneOverlay = () => {
     
     return (
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-10">
+            <Link to="/" className="absolute top-8 left-8 pointer-events-auto">
+                <img 
+                    src="/assets/images/Logo.png" 
+                    alt="Augusta Animation Logo" 
+                    className="h-28 w-auto"
+                />
+            </Link>
+
             <motion.div 
                 className="absolute top-8 right-8 pointer-events-auto cursor-pointer z-10"
                 onClick={() => setIsOpen(!isOpen)}
