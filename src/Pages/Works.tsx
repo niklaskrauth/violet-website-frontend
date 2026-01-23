@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useAnimation } from 'framer-motion';
 
 interface AnimationWork {
   id: string;
@@ -10,7 +10,20 @@ interface AnimationWork {
 }
 
 const worksData: AnimationWork[] = [
-  { id: '1', year: 2026, title: 'Project Alpha', description: 'Eine faszinierende Animation über Licht und Schatten.' },
+  { 
+    id: '1', 
+    year: 2026, 
+    title: 'Fackel',
+    description: 'Brennt im Untergrund.',
+    videoUrl: '/assets/videos/2026/fire.mp4'
+  },
+  { 
+    id: '10', 
+    year: 2026, 
+    title: 'VIVI jagt Allias in die Luft',
+    description: 'Sie hätte sich dagegen versichern sollen.',
+    videoUrl: '/assets/videos/2026/boom.mp4'
+  },
   { 
     id: '2', 
     year: 2025, 
@@ -53,13 +66,32 @@ const worksData: AnimationWork[] = [
     description: 'Ein Tropfen fällt in den Teich.',
     videoUrl: '/assets/videos/2025/ezgif-3316a7d3b96126c2.mp4'
   },
-  { id: '8', year: 2024, title: 'Urban Pulse', description: 'Der Rhythmus der Stadt in animierter Form.' },
-  { id: '9', year: 2024, title: 'Digital Rain', description: 'Ein moderner Klassiker, neu interpretiert.' }
+  { 
+    id: '8', 
+    year: 2024, 
+    title: 'Gojo Fan Animation',
+    description: 'Gojo Spin.',
+    videoUrl: '/assets/videos/2024/VID_157900226_020611_071.mp4'
+  },
+  { 
+    id: '9', 
+    year: 2024, 
+    title: 'Akane Nom Nom',
+    description: 'Sie mag Crepés.',
+    videoUrl: '/assets/videos/2024/VID_373431209_101154_073.mp4'
+  },
+  { 
+    id: '11', 
+    year: 2024, 
+    title: 'Oshi No Ko Fan Animation',
+    description: 'Good Vibes.',
+    videoUrl: '/assets/videos/2024/VID_82910109_012013_119.mp4'
+  }
 ];
 
 const years = [2026, 2025, 2024];
 
-const WorkItem = ({ work }: { work: AnimationWork; index: number }) => {
+const WorkItem = ({ work, onVideoClick }: { work: AnimationWork; index: number; onVideoClick: (url: string) => void }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
   const controls = useAnimation();
@@ -85,8 +117,16 @@ const WorkItem = ({ work }: { work: AnimationWork; index: number }) => {
       className="flex items-center gap-12 mb-48 w-full"
       id={`work-${work.id}`}
     >
-      <div className="w-[400px] h-[400px] bg-zinc-900/50 backdrop-blur-sm rounded-xl flex-shrink-0 flex items-center justify-center border border-white/10 shadow-2xl overflow-hidden group relative">
+      <div 
+        className="w-[400px] h-[400px] bg-zinc-900/50 backdrop-blur-sm rounded-xl flex-shrink-0 flex items-center justify-center border border-white/10 shadow-2xl overflow-hidden group relative cursor-pointer"
+        onClick={() => work.videoUrl && onVideoClick(work.videoUrl)}
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 bg-black/20">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+          </svg>
+        </div>
         {work.videoUrl ? (
           <video 
             src={work.videoUrl} 
@@ -94,7 +134,7 @@ const WorkItem = ({ work }: { work: AnimationWork; index: number }) => {
             muted 
             loop 
             playsInline 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
           <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Animation Placeholder</span>
@@ -123,7 +163,8 @@ const WorkItem = ({ work }: { work: AnimationWork; index: number }) => {
 };
 
 const Works = () => {
-  const [activeYear, setActiveYear] = useState<number>(2025);
+  const [activeYear, setActiveYear] = useState<number>(2026);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const scrollToYear = (year: number) => {
     const firstWorkOfYear = worksData.find(w => w.year === year);
@@ -212,7 +253,12 @@ const Works = () => {
         {/* Center Column: Animation Feed */}
         <div className="w-1/2 mx-auto ml-[30%] pr-12 pointer-events-auto">
           {worksData.map((work, index) => (
-            <WorkItem key={work.id} work={work} index={index} />
+            <WorkItem 
+              key={work.id} 
+              work={work} 
+              index={index} 
+              onVideoClick={(url) => setSelectedVideo(url)} 
+            />
           ))}
         </div>
 
@@ -239,6 +285,44 @@ const Works = () => {
           ))}
         </div>
       </div>
+
+      {/* Fullscreen Video Overlay */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 md:p-12"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-7xl w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                src={selectedVideo}
+                autoPlay
+                controls
+                loop
+                playsInline
+                className="w-full h-full object-contain"
+              />
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute top-6 right-6 p-3 bg-black/50 hover:bg-white/10 rounded-full text-white transition-colors backdrop-blur-md border border-white/10"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

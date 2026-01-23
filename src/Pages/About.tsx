@@ -44,7 +44,11 @@ const About = () => {
           </div>
           <div className="w-[400px] h-[500px] bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Image Placeholder</span>
+            <img 
+              src="/assets/images/Violet.png" 
+              alt="Violet" 
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+            />
           </div>
         </motion.section>
 
@@ -71,31 +75,26 @@ const About = () => {
             >
               <div className="flex-1">
                 <p className="text-zinc-400 text-xl leading-relaxed font-light max-w-xl">
-                  [Placeholder für Studio-Text 1. Beschreibe die Zusammenarbeit, die Atmosphäre oder die Philosophie deines Studios.]
+                  Aktuelle Angestellte: 1
+                  <br/>
+                  Geräte:
+                  <br/>
+                  PC - 1
+                  <br/>
+                  Laptop - 1
+                  <br/>
+                  Grafik Tablet/Tablet - 1
+                  <br/>
+                  Adresse: Isedol Lachsstraße 304
                 </p>
               </div>
               <div className="w-[500px] h-[350px] bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden relative group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Studio Image 1</span>
-              </div>
-            </motion.div>
-
-            {/* Studio Item 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col md:flex-row items-center gap-16"
-            >
-              <div className="flex-1 text-right md:text-left">
-                <p className="text-zinc-400 text-xl leading-relaxed font-light max-w-xl ml-auto md:ml-0">
-                  [Placeholder für Studio-Text 2. Ein weiterer Aspekt deiner Arbeit oder deines Teams.]
-                </p>
-              </div>
-              <div className="w-[450px] h-[450px] bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden relative group">
-                <div className="absolute inset-0 bg-gradient-to-bl from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-zinc-600 font-medium tracking-widest uppercase text-sm">Studio Image 2</span>
+                <img
+                    src="https://www.macromedia-fachhochschule.de/wp-content/uploads/2021/05/210520-macromedia-hochschule-freiburg-campus-8-1620x912-cs.jpg"
+                    alt="Office"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                />
               </div>
             </motion.div>
           </div>

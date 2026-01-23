@@ -10,12 +10,12 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: '1', title: 'Violet Crystal', price: 49.99, description: 'A rare violet crystal that glows in the dark.', imageUrl: 'https://via.placeholder.com/400x400/8b5cf6/ffffff?text=Crystal+1' },
-  { id: '2', title: 'Aether Fragment', price: 29.99, description: 'A fragment of pure aether collected from the nebula.', imageUrl: 'https://via.placeholder.com/400x400/a78bfa/ffffff?text=Fragment+2' },
-  { id: '3', title: 'Nebula Dust', price: 15.00, description: 'Finely ground dust from the center of a nebula.', imageUrl: 'https://via.placeholder.com/400x400/c4b5fd/ffffff?text=Dust+3' },
-  { id: '4', title: 'Shadow Shard', price: 35.50, description: 'A shard of shadow found in the deepest craters.', imageUrl: 'https://via.placeholder.com/400x400/4c1d95/ffffff?text=Shard+4' },
-  { id: '5', title: 'Light Essence', price: 55.00, description: 'Pure essence of light captured in a glass sphere.', imageUrl: 'https://via.placeholder.com/400x400/ddd6fe/ffffff?text=Essence+5' },
-  { id: '6', title: 'Void Core', price: 99.99, description: 'The core of a void, powerful and mysterious.', imageUrl: 'https://via.placeholder.com/400x400/2e1065/ffffff?text=Core+6' },
+  { id: '1', title: 'Violet Crystal', price: 49.99, description: 'A rare violet crystal that glows in the dark.', imageUrl: 'https://www.centreofexcellence.com/media/image/2e/c6/14f89f4bab0b7a60502d125eedd5.jpg' },
+  { id: '2', title: 'Aether Fragment', price: 29.99, description: 'A fragment of pure aether collected from the nebula.', imageUrl: 'https://i.ebayimg.com/images/g/9kkAAOSwBCFnDbZK/s-l960.jpg' },
+  { id: '3', title: 'Shadow Shard', price: 35.50, description: 'A shard of shadow found in the deepest craters.', imageUrl: 'https://www.shutterstock.com/image-illustration/rendering-realistic-black-quartz-crystals-600nw-2641676773.jpg' },
+  { id: '4', title: 'Sword Woman', price: 10.00, description: 'Looks at you with disgust.', imageUrl: 'public/assets/images/1person.jpg' },
+  { id: '5', title: 'People', price: 20.00, description: 'Buy 2 for the price of 1.', imageUrl: 'public/assets/images/2_Persons.jpg' },
+  { id: '6', title: 'CA8', price: 100.00, description: 'Cuts you in half and steps on you.', imageUrl: 'public/assets/images/2bsass.jpg' },
 ];
 
 const Store = () => {
